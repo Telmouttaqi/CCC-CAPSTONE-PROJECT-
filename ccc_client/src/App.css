@@ -1,0 +1,93 @@
+.App {
+  text-align: left;
+  text-shadow: 0.25px 0.25px #a0a3a9;
+  background-color: #cdcde9;
+  color: #16085c;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+td {
+  text-align: "center";
+}
+
+input {
+  display: block;
+}
+
+label {
+  margin: 1px;
+}
+
+button {
+  margin: 3px;
+}
+
+button:hover {
+  margin: 5px;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.24), 0 10px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #667;
+  transform: translateY(4px);
+}
+
+body {
+  display:block;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
+  height: 100vh;
+  /* font-size: 21px; */
+  background-color: #d3cde9;
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fget.pxhere.com%2Fphoto%2Fworld-flag-hands-globe-international-national-political-uniting-Eurasia-australia-antarctica-america-russia-worldwide-unity-ethnic-africa-countries-south-north-location-earth-map-nations-illustration-art-1585107.jpg&f=1&nofb=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: normal, lighten;
+}
+
+img {
+  opacity: 0.5;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #0d275c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-footer {
+  background-color: #9b8bce;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.navbar {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-inner {
+  margin-left: 0;
+  margin-right: 0;
+}

@@ -1,0 +1,59 @@
+###
+@url =http://localhost:8080/api/performance
+
+
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzY2hlbWFfdGVzdCIsInN1YiI6ImpvaG5Ac21pdGguY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwiZXhwIjoxNjUzODQxMzc3fQ.sKw5F-NCI59z69iEnT1RQZzCUQGzX_kGuqKTsNYTZ78
+
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "john@smith.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "sally@jones.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+GET {{url}}
+Authorization: Bearer {{token}}
+
+###
+
+GET {{url}}/2
+Authorization: Bearer {{token}}
+
+
+###
+POST {{url}} HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Performance4",
+    "description": "description4"
+}
+
+### 204 Success
+PUT {{url}}/4 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "performancesId": 4,
+    "name": "Performance44",
+    "description": "description44"
+
+}
+
+###
+
+###
+DELETE {{url}}/4 HTTP/1.1

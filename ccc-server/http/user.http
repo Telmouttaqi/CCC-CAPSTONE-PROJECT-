@@ -1,0 +1,73 @@
+###
+@url =http://localhost:8080/api/user
+
+
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzY2hlbWFfdGVzdCIsInN1YiI6ImpvaG5Ac21pdGguY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwiZXhwIjoxNjU0MTEzOTc0fQ.qYAM9yOR3np1AlGgWDeuVpMmajhFvj2mTa95jrxlytU
+
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "john@smith.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "sally@jones.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+GET {{url}}
+Authorization: Bearer {{token}}
+
+###
+
+GET {{url}}/11
+Authorization: Bearer {{token}}
+
+
+###
+POST {{url}} HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "firstName": "Taw",
+    "middleName": "e",
+    "lastName": "s",
+    "userAddress": "68564 Express Pass",
+    "userCity": "Dallas",
+    "userState": "TX",
+    "userZip": "75367",
+    "userPhone": "214-685-3418",
+    "userEmail": "sally@jones.com"
+}
+
+### 204 Success
+PUT {{url}}/11 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "userId": 11,
+    "firstName": "ElMouttaqi",
+    "middleName": "Jones",
+    "lastName": "Jones",
+    "userAddress": "68564 Express Pass",
+    "userCity": "Dallas",
+    "userState": "TX",
+    "userZip": "75367",
+    "userPhone": "214-685-3418",
+    "userEmail": "sally@jones.com"
+
+}
+
+###
+
+###
+DELETE {{url}}/4 HTTP/1.1

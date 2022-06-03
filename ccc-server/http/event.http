@@ -1,0 +1,130 @@
+@url = http://localhost:8080/api/event
+
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzY2hlbWFfdGVzdCIsInN1YiI6ImpvaG5Ac21pdGguY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwiZXhwIjoxNjU0MTA5Njk0fQ.yBqdEIDoWHvmP652G-rwcnuSN6yn3q_5gqYyKYQVOdQ
+
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "john@smith.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "sally@jones.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+GET {{url}} HTTP/1.1
+
+###
+GET {{url}}/2 HTTP/1.1
+Authorization: Bearer {{token}}
+
+
+###
+GET {{url}}/user/2 HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+GET {{url}}/date HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "date" : "2022-06-08"
+}
+
+###
+GET {{url}}/date HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "eventName": "New Event",
+    "locationId": 1,
+    "startDate": "2022-06-14",
+    "endDate": "2022-06-18",
+    "capacity": 11,
+    "categoryId": 1,
+    "cultureId": 1,
+    "userId": 2
+}
+
+### 403 unauthorized
+PUT {{url}}/7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "eventId": "7",
+    "eventName": "New Event",
+    "locationId": 1,
+    "startDate": "2022-06-14",
+    "endDate": "2022-06-18",
+    "capacity": 11,
+    "categoryId": 1,
+    "cultureId": 1,
+    "userId": 2
+}
+
+### 409 not matching 
+PUT {{url}}/7 HTTP/1.1
+Content-Type: application/json
+
+{
+
+    "eventName": "New Event",
+    "locationId": 1,
+    "startDate": "2022-06-14",
+    "endDate": "2022-06-18",
+    "capacity": 11,
+    "categoryId": 1,
+    "cultureId": 1,
+    "userId": 7
+}
+
+### 400 fail domain rule
+PUT {{url}}/7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "eventId": "7",
+    "eventName": "New Event",
+    "locationId": 1,
+    "startDate": "2022-05-14",
+    "endDate": "2022-06-18",
+    "capacity": 11,
+    "categoryId": 1,
+    "cultureId": 1,
+    "userId": 7
+}
+
+### 204 Success
+PUT {{url}}/7 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "eventId": "7",
+    "eventName": "New Event",
+    "locationId": 1,
+    "startDate": "2022-06-14",
+    "endDate": "2022-06-18",
+    "capacity": 11,
+    "categoryId": 1,
+    "cultureId": 1,
+    "username": 
+}
+
+###
+DELETE {{url}}/1 HTTP/1.1

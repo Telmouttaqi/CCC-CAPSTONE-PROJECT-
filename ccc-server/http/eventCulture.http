@@ -1,0 +1,73 @@
+###
+@url =http://localhost:8080/api/eventCulture
+
+
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzY2hlbWFfdGVzdCIsInN1YiI6ImpvaG5Ac21pdGguY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwiZXhwIjoxNjUzNjgxMzQ0fQ.Ao2qNBFrZsNi0rnMYeagYPtoy-sUtVTZb1aCzS7bGVI
+
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "john@smith.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "sally@jones.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+GET {{url}} HTTP/1.1
+Authorization: Bearer {{token}}
+
+
+###
+
+GET {{url}}/2 HTTP/1.1
+Authorization: Bearer {{token}}
+
+
+###
+
+POST {{url}} HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+{
+    
+    "cultureName": "X-Culture",
+    "categoryDescription": "http test"
+}
+
+###
+
+PUT {{url}}/4 HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "cultureId": "4",
+    "cultureName": "X-Culture122",
+    "categoryDescription": "http test1"
+}
+
+### 
+
+DELETE {{url}}/4 HTTP/1.1
+
+
+
+
+
+
+
+
+
+
+

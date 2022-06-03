@@ -1,0 +1,26 @@
+services:
+
+  db:
+    build: ./sql
+    environment:
+      - MARIADB_ROOT_PASSWORD=ConnectThoibaCon
+
+  api:
+    build: ./ccc-server
+    environment:
+      - DB_URL=jdbc:mysql://db:3306/culture_connection_calendar
+      - DB_USERNAME=root
+      - DB_PASSWORD=ConnectThoibaCon
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    restart: on-failure:3
+
+  ui:
+    build: ./ccc_client
+    ports:
+      - 3000:80
+    depends_on:
+      - db
+      - api

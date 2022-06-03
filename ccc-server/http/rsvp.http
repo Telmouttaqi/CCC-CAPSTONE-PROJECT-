@@ -1,0 +1,44 @@
+@url = http://localhost:8080/api/rsvp
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzY2hlbWFfdGVzdCIsInN1YiI6ImpvaG5Ac21pdGguY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwiZXhwIjoxNjUzNjc4ODUyfQ.qW_o9qWNJU7GMXFNtWNd8C-jVQ0St92cF7p882jI5Wo
+
+POST http://localhost:8080/api/authenticate  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "john@smith.com",
+    "password": "P@ssw0rd!"
+}
+
+###
+
+GET {{url}} HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+GET {{url}}/2/1 HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+ {
+    "userId": 5,
+    "eventId": 5
+  }
+
+###
+PUT {{url}}/5/5 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "userId": 5,
+    "eventId": 5,
+    "approved": "true"
+  }
+
+###
+DELETE {{url}}/1 HTTP/1.1

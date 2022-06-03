@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  ccc-ui:
+    image: cuongmnguyen/ccc-ui:1.7
+    environment:
+      - API_URL=http://cccapi-env-1.us-east-1.elasticbeanstalk.com/api
+    ports:
+      - 80:80
